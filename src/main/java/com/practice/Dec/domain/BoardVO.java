@@ -1,0 +1,1 @@
+package com.practice.Dec.domain;import lombok.Data;import java.util.Date;@Data//@Data = @Getter + @Setter + @ToString + @EqualsAndHashCode + @RequiredArgsConstructor + @Valuepublic class BoardVO {    private Long bno;    private String title;    private String content;    private String writer;    private Date regdate;    private Date updateDate;}

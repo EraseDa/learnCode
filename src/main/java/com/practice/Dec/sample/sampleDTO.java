@@ -1,0 +1,1 @@
+package com.practice.Dec.sample;import lombok.Data;@Datapublic class sampleDTO {    private String name;    private int age;}

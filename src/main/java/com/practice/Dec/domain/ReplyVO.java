@@ -1,0 +1,1 @@
+package com.practice.Dec.domain;import lombok.Data;import java.util.Date;@Datapublic class ReplyVO {    private long rno; //댓글 넘버    private long bno; //게시글 넘버    private String reply;    private String replyer;    private Date replyDate;    private Date updateDate;}

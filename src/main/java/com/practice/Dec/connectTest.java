@@ -1,0 +1,1 @@
+package com.practice.Dec;import org.apache.ibatis.annotations.Mapper;@Mapperpublic interface connectTest {    //<select id="selectCurTime" resultType="String">    public String selectCurTime();}
