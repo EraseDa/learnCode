@@ -141,6 +141,25 @@
 			<version>1.9.20.1</version>
 			<scope>runtime</scope>
 		</dependency>
+		<!--	트랜잭션을 위한 라이브러리	-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>6.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>6.1.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/hikari-cp/hikari-cp -->
+		<dependency>
+			<groupId>hikari-cp</groupId>
+			<artifactId>hikari-cp</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+
+
 
 
 	</dependencies>
