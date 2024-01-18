@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.SimpleFormatter;
 
 @Controller
 @Log4j2
@@ -48,13 +51,29 @@ public class UploadController {
         log.info("update ajax post................");
         String uploadFolder = "C:\\upload";
 
+        //make folder--------
+        File uploadPath = new File(uploadFolder,getFolder());
+        log.info("upload path : " + uploadPath);
+
+        if(uploadPath.exists()==false) {
+            uploadPath.mkdirs();
+        }
+
+        //make yyyy/MM/dd folder
         for(MultipartFile multipartFile : uploadFile) {
 
             log.info("============================");
             log.info("upload file name : " +multipartFile.getOriginalFilename());
             log.info("upload file size : " +multipartFile.getSize());
 
-            File saveFile = new File(uploadFolder, multipartFile.getOriginalFilename());
+            String uploadFileName = multipartFile.getOriginalFilename();
+
+            //IE has file path
+            uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("\\") + 1);
+            log.info("only file name : " + uploadFileName);
+
+            //File saveFile = new File(uploadFolder, multipartFile.getOriginalFilename());
+            File saveFile = new File(uploadPath, uploadFileName);
 
             try {
                 multipartFile.transferTo(saveFile);
@@ -62,5 +81,15 @@ public class UploadController {
                 log.error(e.getMessage());
             } // transferTo 메서드는 파일의 저장 메서드임
         }
+    }
+
+    private String getFolder(){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+        Date date =  new Date();
+
+        String str = sdf.format(date);
+
+        return str.replace("-", File.separator);
     }
 }
