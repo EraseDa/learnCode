@@ -58,13 +58,14 @@
             }
 
             $.ajax({
-                url:'/uploadAjax',
+                url:'/uploadAjaxAction',
                 processData: false,
                 contentType: false,
                 data: formData,
                 type:'post',
+                dataType:'json',
                 success: function (result){
-                    alert("uploaded");
+                    console.log(result);
                 }
             }); //end ajax 유의 : 첨부파일 데이터는 fileData를 formData에 추가한 후에
             // Ajax를 통해서 formData자체를 전송해야함. processData 및 contentType은 반드시 false로 지정해야한 전송됨
